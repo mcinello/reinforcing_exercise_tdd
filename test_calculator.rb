@@ -4,55 +4,48 @@ require 'minitest/pride'
 require './calculator.rb'
 
 class TestCalculator < MiniTest::Test
-  # add takes two parameters and adds them
-
   def setup
     @calculator = Calculator.new
   end
 
+  # add takes two parameters and adds them
   def test_adds_0_and_0
-    skip
-    assert_equal 0, add(0, 0)
+  result = @calculator.add(0, 0)
+
+    assert_equal 0, result
   end
 
   def test_adds_2_and_2
-    skip
-    assert_equal 4, add(2, 2)
+    result = @calculator.add(2,2)
+    assert_equal 4, result
   end
 
   def test_adds_positive_numbers
-    result = @calculator.add(2,2)
-
-    expected = 4
-
-    assert_equal expected, result
+    result = @calculator.add(4, 4)
+    assert_equal 8, result
   end
 
  # subtract takes two parameters and subtracts the second from the first
   def test_subtracts_numbers
-    skip
-    assert_equal 6, subtract(10, 4)
+    result = @calculator.subtract(10, 4)
+    assert_equal 6, result
   end
 
 # sum takes an *array* of numbers and adds them all together
 # This one is a bit trickier!
   def test_computes_sum_of_empty_array
-    skip
-    assert_equal(0, sum([]))
+    assert_equal(0, @calculator.sum([]))
   end
 
   def test_computes_sum_of_single_number
-    skip
-    assert_equal 7, sum([7])
+    assert_equal 7, @calculator.sum([7])
   end
 
   def test_computes_sum_of_two_numbers
-    skip
-    assert_equal 18, sum([7, 11])
+    assert_equal 18, @calculator.sum([7, 11])
   end
 
   def test_computes_sum_of_many_numbers
-    skip
-    assert_equal 25, sum([1,3,5,7,9])
+    assert_equal 25, @calculator.sum([1,3,5,7,9])
   end
 end
